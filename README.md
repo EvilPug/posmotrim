@@ -1,24 +1,25 @@
 # Сервис трекинга фильмов "Посмотрим"
 
-
 #### Как развернуть проект?
 
-**а) С помощью Docker**
+Создать .env файл в корне проекта со следующим содержимым:
 
+    DEBUG=True
+    SECRET_KEY='your_secret_key'
+
+    POSTGRES_NAME=postgres
+    POSTGRES_USER=postgres
+    POSTGRES_PASSWORD=postgres
+
+Поднять проект с помощью Docker
+
+    docker-compose build
     docker-compose up -d
 
-**б) Вручную**
+В контейнере web выполнить команды:
 
-- Запустить СУБД PostgreSQL на порту 5432.
-- Создать пользователя *postgres* с паролем *postgres*.
-- Создать базу *postgres* и выдать права пользователю *postgres*.
-
-Выполнить команды:
-
-    pip install -r requirements.txt
-    python3 manage.py makemigrations
+    cd src
     python3 manage.py migrate
-    python3 manage.py runserver
 
 *Запущенный сервер доступен по адресу 127.0.0.1:8000*
 
