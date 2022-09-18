@@ -1,0 +1,78 @@
+* {
+	font-family:"Montserrat",arial,sans-serif;
+	font-weight:500;
+}
+body {
+	background:#F0F4F9;
+}
+.nav {
+	padding: 30px 0 0 0;
+	background:#66B678;
+}
+.nav .logo_pic {
+	width:120px;
+    display:inline-block;
+    position:relative;
+    height:100px;
+    overflow:hidden;
+    vertical-align: middle;
+    margin-left: 45.5%;
+    margin-right: auto;
+   	margin-top: -18px;
+}
+.nav .logo_pic img {
+	position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    max-width:135px;
+    width:100%;
+    display:inline-block;
+    z-index:10;
+}
+.nav .profile_pic {
+    width:50px;
+    display:inline-block;
+    position:relative;
+    height:50px;
+    overflow:hidden;
+    vertical-align: middle;
+    margin-right: 5%;
+}
+.nav .profile_pic img {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    max-width:135px;
+    width:100%;
+    display:inline-block;
+    z-index:10;
+}
+.friends_list {
+    padding-top: 5%;
+
+}
+.friends_list .friend_card .friend_pic {
+    width:250px;
+    display:block;
+    position:relative;
+    height:250px;
+    overflow:hidden;
+    vertical-align: middle;
+    margin: auto;
+}
+.friends_list .friend_card .friend_pic img {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    max-width:135px;
+    width:100%;
+    display:inline-block;
+    z-index:10;
+}
+.friends_list .friend_card a {
+    color: #000;
+    text-decoration: none;
+}

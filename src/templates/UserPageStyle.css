@@ -1,0 +1,166 @@
+*{font-family:"Montserrat",arial,sans-serif;font-weight:500;}
+body{background:#F0F4F9;}
+.profile_main{padding:30px 0 0 0;background:#66B678;}
+
+/* Аватарка пользователя */
+.profile_main .image-wrapper {
+    width:130px;
+    display:inline-block;
+    position:relative;
+    height:130px;
+    overflow:hidden;
+    border-radius:50%;
+    box-shadow:0px 2px 8px rgba(0,0,0,.15);
+    vertical-align:middle;
+    margin-bottom:-50px;
+}
+.profile_main .image-wrapper img {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    max-width:135px;
+    width:100%;
+    display:inline-block;
+    z-index:10;
+}
+.profile_main .image-wrapper .edit {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    z-index:11;
+    color:white;background:#2ecc71;
+    font-size:12px;padding:5px 8px;
+    border-radius:3px;
+    text-transform:uppercase;
+    font-weight:700;
+    opacity:0;
+    transition:.2s;
+}
+.profile_main .image-wrapper .edit:hover {
+  Background:#27ae60;
+  text-decoration:none;
+}
+.profile_main .image-wrapper:hover .edit {
+  opacity:1;
+}
+
+/* Имя */
+.profile_main .about-user {
+  display:inline-block;
+  padding-left:20px;
+  vertical-align:middle;
+}
+
+.profile_main .about-user .name {
+  font-size:24px;
+  color:white;
+  font-weight:700;
+}
+
+/* Иконка редактирования */
+.profile_main .edit-icon {
+  color:rgba(255,255,255,0.7);
+  font-size:14px;
+  display:inline-block;
+  vertical-align:middle;
+  opacity:0;
+  visibility:hidden;
+  transition:.2s;
+}
+.profile_main .name:hover .edit-icon {
+  opacity:1;
+  visibility:visible;
+}
+.profile_main .logo-homepage {
+  text-decoration: none;
+  color: #000;
+}
+.friends_link {
+  padding-left: 20%;
+  padding-top: 10px;
+}
+.friends_link a {
+  color: #000;
+  text-decoration: none;
+}
+
+
+.project-tab {
+    padding: 10%;
+    margin-top: 1%;
+}
+.project-tab #tabs{
+    background: #007b5e;
+    color: #eee;
+}
+.project-tab #tabs h6.section-title{
+    color: #eee;
+}
+.project-tab #tabs .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #0062cc;
+    background-color: transparent;
+    border-color: transparent transparent #f3f3f3;
+    border-bottom: 3px solid !important;
+    font-size: 16px;
+    font-weight: bold;
+}
+.project-tab .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    color: #0062cc;
+    font-size: 16px;
+    font-weight: 600;
+}
+.project-tab .nav-link:hover {
+    border: none;
+}
+.project-tab thead{
+    background: #f3f3f3;
+    color: #333;
+}
+.project-tab a{
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+}
+.filter-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 75%;
+    margin: 50px auto;
+    padding: 25px;
+}
+.filter-tabs input[type="radio"] {
+    display: none;
+}
+.filter-tabs label {
+    padding: 25px;
+    background: #e2e2e2;
+    font-weight: bold;
+    width: 220px;
+    text-align: center;
+}
+.filter-tabs .tab {
+    width: 95%;
+    padding: 20px;
+    order: 1;
+    display: none;
+}
+.filter-tabs input[type="radio"]:checked + label + .tab {
+    display: block;
+}
+.filter-tabs input[type="radio"]:checked + #watching {
+    background: #66B678;
+}
+.filter-tabs input[type="radio"]:checked + #watched {
+    background: #E84949;
+}
+.filter-tabs input[type="radio"]:checked + #plan {
+    background: #F8E645;
+}
+.filter-tabs input[type="radio"]:checked + #quit {
+    background: #9D9D9D;
+}
