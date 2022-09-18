@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block title %} Авторизация {% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+<form method="post">
+    {% csrf_token %} {{login_form|crispy}}
+    <p>Нет аккаунта? Зарегистрируйтесь!<a href="/register">Здесь</a></p>
+    <button type="submit" class="btn btn-success">Войти</button>
+</form>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <style> input {max-width: 36em};</style>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"/>
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+    <title>{% block title %}Посмотрим{% endblock %}</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <div>
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Главная</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <ul class="navbar-nav">
+            {% if user.is_authenticated %}
+            <span class="navbar-text">Logged in as {{user.username}} | </span>
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Logout</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container-md py-4">{% block content %} {% endblock %}</div>
+
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+  </body>
+</html>

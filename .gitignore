@@ -4,6 +4,8 @@
 .DS_Store
 *.ps1
 
+#.idea folder
+.idea
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
