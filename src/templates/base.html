@@ -21,17 +21,21 @@
 			<div class="logo_pic">
 				<a href="#homepage"><img src="{% static 'images/logo.png' %}"></a>
 			</div>
+      {% if user.is_authenticated %}
+      <span class="">{{user.username}}</span>
+      {% endif %}
 			<div class="profile_pic">
-
 				<a href="#profile"><img src="{% static 'images/person-circle.svg' %}"></a>
-                <span class="navbar-text">{{user.username}}</span>
 			</div>
-        </div>
+    </div>
 	</header>
 
 
-    <div class="container-md py-4">{% block content %} {% endblock %}</div>
+    <div class="container-md py-4">
+      {% block content %} {% endblock %}
+    </div>
 
-    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'js/jquery-3.6.1.js' %}"></script>
   </body>
 </html>

@@ -4,7 +4,7 @@
 {% block content %}
 <form method="post">
     {% csrf_token %} {{login_form|crispy}}
-    <p>Нет аккаунта? Зарегистрируйтесь!<a href="/register">Здесь</a></p>
+    <p>Нет аккаунта? Зарегистрируйтесь!<a href="/users/register">Здесь</a></p>
     <button type="submit" class="btn btn-success">Войти</button>
 </form>
 {% endblock %}

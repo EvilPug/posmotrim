@@ -23,6 +23,7 @@ ALLOWED_HOSTS = ['*']
 
 # Application definition
 INSTALLED_APPS = [
+    'users',
     'tracker',
     'friendship',
     'crispy_forms',
@@ -121,6 +122,8 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AUTH_USER_MODEL = 'users.Spectator'
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 

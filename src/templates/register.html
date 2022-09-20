@@ -2,7 +2,7 @@
 {% load crispy_forms_tags %} {% block content %}
 <form method="post">
   {% csrf_token %}{{register_form|crispy}}
-  <p>Уже есть аккаунт? Войти <a href="/login">Здесь</a>!</p>
+  <p>Уже есть аккаунт? Войти <a href="/users/login">Здесь</a>!</p>
   <button type="submit" class="btn btn-success">Зарегистрироваться</button>
 </form>
 {% endblock %}

@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="film_info">
+  <div class="container">
+    <div class="row gy-5 gx-1 form-group">
+      <div class="col-md-4">
+        <div class="film-pic">
+          <img src="https://kinopoiskapiunofficial.tech/images/posters/kp/{{ film.kinopoisk_id }}.jpg">
+        </div>
+      </div>
+      <div class="col">
+        <div class="row gy-3 gx-1">
+            <div class="col-md-offset-8"><h2>{{ film.name }}</h2></div>
+            <div class="col-md-8">
+              <p>
+                {{ film.description }}
+              </p>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="row row g-2 mt-0 pt-2">
+        <div class="col-md-4">
+          Ваша оценка фильма: {{ stats.rated }}
+          <br>
+          Ваш статус фильма: {{ stats.status }}
+          <div class="dropdown">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Разметить
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" id="watching" href="#">Смотрю</a></li>
+              <li><a class="dropdown-item" id="watched" href="#">Посмотрел</a></li>
+              <li><a class="dropdown-item" id="plan" href="#">Буду смотреть</a></li>
+              <li><a class="dropdown-item" id="quit" href="#">Бросил</a></li>
+            </ul>
+        </div>
+        </div>
+        <div class="col-md-8">
+          <h4>Похожие</h4>
+          <br>
+          <div class="row row-cols-1 row-cols-md-5 g-4">
+            <div class="col">
+              <div class="card">
+                <img class="card-img-top" src="../static/images/midsommar.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Midsommar</h5>
+                </div>
+              </div>
+          </div>
+          <div class="col">
+              <div class="card">
+                <img class="card-img-top" src="../static/images/midsommar.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Midsommar</h5>
+                </div>
+              </div>
+          </div>
+          <div class="col">
+              <div class="card">
+                <img class="card-img-top" src="../static/images/midsommar.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Midsommar</h5>
+                </div>
+              </div>
+          </div>
+          <div class="col">
+              <div class="card">
+                <img class="card-img-top" src="../static/images/midsommar.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Midsommar</h5>
+                </div>
+              </div>
+          </div>
+          <div class="col">
+              <div class="card">
+                <img class="card-img-top" src="../static/images/midsommar.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Midsommar</h5>
+                </div>
+              </div>
+          </div>
+        </div>
+        </div>
+      </div>
+  </div>
+</section>
+{% endblock %}

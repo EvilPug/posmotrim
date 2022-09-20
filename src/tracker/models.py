@@ -1,8 +1,8 @@
 from django.db import models
-from django.contrib.auth.models import User
 from django.contrib.postgres.fields import ArrayField
 
 
+"""
 def film_default():
     return {"films": [{"kinopoiskId": 308, "status": "watched", "rated": 10}]}
 
@@ -11,10 +11,10 @@ class FilmUser(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     films = models.JSONField("FilmsInfo", default=film_default)
 
-
-class FriendRequest(models.Model):
-    from_user = models.ForeignKey(FilmUser, related_name='from_user', on_delete=models.CASCADE)
-    to_user = models.ForeignKey(FilmUser, related_name='to_user', on_delete=models.CASCADE)
+    def get_stats_by_user(self, user):
+        queryset = self.filter(user=user)
+        return list(queryset)
+"""
 
 
 class Film(models.Model):
