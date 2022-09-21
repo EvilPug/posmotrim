@@ -8,6 +8,14 @@ body {
 .nav {
 	padding: 30px 0 0 0;
 }
+#profile-dropdown {
+    margin-right: 5%;
+    margin-left: auto;
+}
+#profile-dropdown button {
+    background: #F0F4F9;
+    border: none;
+}
 .nav .profile_pic {
     width:50px;
     display:inline-block;

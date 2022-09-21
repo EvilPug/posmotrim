@@ -19,11 +19,26 @@
           </div>
       </div>
     </div>
-    <div class="row row g-2 mt-0 pt-2">
+    <div class=" row g-2 mt-0 pt-2">
         <div class="col-md-4">
-          Ваша оценка фильма: {{ stats.rated }}
-          <br>
-          Ваш статус фильма: {{ stats.status }}
+          {% if user.is_authenticated %}
+          <div class="rating-tag">
+            {% if stats.rated %}
+            <span class="rating">
+              <font size="+3">{{ stats.rated }}/</font><font size="+1">5,</font>
+            </span>
+            {% else %}
+            <span>Rate</span>
+            {% endif %}
+            {% if stats.status %}
+            <span>
+              <button type="button" id="{{ stats.status }}" class="btn btn-secondary btn-lg" disabled>{{ stats.status }}
+              </button>
+            </span>
+            {% else %}
+            <span></span>
+            {% endif %}
+          </div>
           <div class="dropdown">
             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Разметить
@@ -34,7 +49,8 @@
               <li><a class="dropdown-item" id="plan" href="#">Буду смотреть</a></li>
               <li><a class="dropdown-item" id="quit" href="#">Бросил</a></li>
             </ul>
-        </div>
+          </div>
+          {% endif %}
         </div>
         <div class="col-md-8">
           <h4>Похожие</h4>

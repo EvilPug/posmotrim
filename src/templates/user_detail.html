@@ -18,7 +18,7 @@
   <div class="profile_main">
     <div class="container">
       <div class="row">
-        <div class="col-8 col-sm-8 col-md-8 col-xs-8 col-lg-8">
+        <div class="col-10 col-sm-10 col-md-10 col-xs-10 col-lg-10">
           <div class="image-wrapper">
             <a href="#" class="edit">Изменить</a>
             <img src="{% static 'images/avatar.png' %}">
@@ -27,13 +27,25 @@
           <span class="name">{{ user.username }} <a href="#" class="edit-icon"><i class="fas fa-edit"></i></a></span><br/>
           </div>
         </div>
-        <div class="col-4 col-sm-4 col-md-4 col-xs-4 col-lg-4"><a href="/" class="logo-homepage">На главную</a></div>
+        <div class="col-1 col-sm-1 col-md-1 col-xs-1 col-lg-1 ustify-content-center">
+          <a href="/" class="logo-homepage">
+            <img src="{% static 'images/mini_logo.png' %}">
+          </a>
+        </div>
+        <div class="col-1 col-sm-1 col-md-1 col-xs-1 col-lg-1 ustify-content-center">
+          <div class="dropdown" id="profile-dropdown">
+              <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="profile_pic">
+                  <img src="{% static 'images/person-circle.svg' %}">
+                </div>
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Друзья</a></li>
+                <li><a class="dropdown-item" href="/users/logout">Выйти</a></li>
+              </ul>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="friends_link">
-    <div class="container">
-      <a href="#friends">Друзья</a>
     </div>
   </div>
 

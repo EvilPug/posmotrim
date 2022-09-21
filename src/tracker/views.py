@@ -44,7 +44,7 @@ def film_detail(request, pk):
         if str(film.pk) in user_watched:
             stats = user.films[str(film.pk)]
         else:
-            stats = {'rated': 'не оценен', 'status': 'нет статуса'}
+            stats = {'rated': None, 'status': None}
 
     return render(request, 'film_detail.html', context={'film': film,
                                                         'stats': stats})

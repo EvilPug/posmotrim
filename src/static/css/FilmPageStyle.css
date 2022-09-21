@@ -9,6 +9,13 @@ body {
 	padding: 30px 0 0 0;
 	background:#66B678;
 }
+#profile-dropdown {
+    margin-right: 5%;
+}
+#profile-dropdown button {
+    background: #66B678;
+    border: none;
+}
 .nav .logo_pic {
 	width:120px;
     display:inline-block;
@@ -77,6 +84,26 @@ body {
     width:100%;
     display:inline-block;
     z-index:10;
+}
+.film_info .rating-tag #watching{
+    font-size: 15px;
+    margin-bottom: 6px;
+    background-color: #66B678;
+}
+.film_info .rating-tag #watched{
+    font-size: 15px;
+    margin-bottom: 6px;
+    background-color: #E84949;
+}
+.film_info .rating-tag #plan{
+    font-size: 15px;
+    margin-bottom: 6px;
+    background-color: #F8E645;
+}
+.film_info .rating-tag #quit{
+    font-size: 15px;
+    margin-bottom: 6px;
+    background-color: #9D9D9D;
 }
 .film_info .dropdown-menu #watching:hover {
     background: #66B678;

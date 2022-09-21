@@ -73,10 +73,6 @@ body{background:#F0F4F9;}
   opacity:1;
   visibility:visible;
 }
-.profile_main .logo-homepage {
-  text-decoration: none;
-  color: #000;
-}
 .friends_link {
   padding-left: 20%;
   padding-top: 10px;
@@ -84,6 +80,52 @@ body{background:#F0F4F9;}
 .friends_link a {
   color: #000;
   text-decoration: none;
+}
+.logo-homepage {
+    width:65px;
+    display:inline-block;
+    position:relative;
+    height:65px;
+    overflow:hidden;
+    vertical-align: middle;
+    margin-right: 3%;
+    justify-content: center;
+}
+.logo-homepage img {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    max-width:135px;
+    width:100%;
+    display:inline-block;
+    z-index:10;
+}
+#profile-dropdown {
+    margin-right: 5%;
+}
+#profile-dropdown button {
+    background: #66B678;
+    border: none;
+}
+.profile_pic {
+    width:50px;
+    display:inline-block;
+    position:relative;
+    height:50px;
+    overflow:hidden;
+    vertical-align: middle;
+    margin-right: 5%;
+}
+.profile_pic img {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    max-width:135px;
+    width:100%;
+    display:inline-block;
+    z-index:10;
 }
 
 
