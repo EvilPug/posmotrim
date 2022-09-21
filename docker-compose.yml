@@ -3,6 +3,7 @@ version: "3.9"
 services:
   db:
     image: postgres
+    command: postgres -c stats_temp_directory=/tmp
     ports:
       - "5435:5432"
     volumes:
