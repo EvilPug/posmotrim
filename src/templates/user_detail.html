@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Постмотрим - UserPage</title>
+  <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"/>
+  <link href="{% static 'css/UserPageStyle.css' %}" rel="stylesheet"/>
+
+  <link type="image/png" href="{% static 'favicon.ico' %}" rel="shortcut icon"/>
+
+  <link href="{% static 'css/all.css' %}" rel="stylesheet">
+  <link href="{% static 'css/montserrat.css.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+  <div class="profile_main">
+    <div class="container">
+      <div class="row">
+        <div class="col-8 col-sm-8 col-md-8 col-xs-8 col-lg-8">
+          <div class="image-wrapper">
+            <a href="#" class="edit">Изменить</a>
+            <img src="{% static 'images/avatar.png' %}">
+          </div>
+          <div class="about-user">
+          <span class="name">{{ user.username }} <a href="#" class="edit-icon"><i class="fas fa-edit"></i></a></span><br/>
+          </div>
+        </div>
+        <div class="col-4 col-sm-4 col-md-4 col-xs-4 col-lg-4"><a href="/" class="logo-homepage">На главную</a></div>
+      </div>
+    </div>
+  </div>
+  <div class="friends_link">
+    <div class="container">
+      <a href="#friends">Друзья</a>
+    </div>
+  </div>
+
+  <section id="tabs" class="filter-tabs">
+      <input type="radio" id="tab-watching" name="filtab" checked="checked">
+      <label for="tab-watching" id="watching">Смотрю</label>
+      <div class="tab">
+          <table class="table" cellspacing="0">
+              <thead>
+                  <br></br>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td><a href="#">Фильм 1</a></td>
+                      <td>Инфо</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+
+      <input type="radio" id="tab-watched" name="filtab">
+      <label for="tab-watched" id="watched">Посмотрел</label>
+      <div class="tab">
+          <table class="table" cellspacing="0">
+              <thead>
+                  <br></br>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td><a href="#">Фильм 2</a></td>
+                      <td>Инфо</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+
+      <input type="radio" id="tab-plan" name="filtab">
+      <label for="tab-plan" id="plan">Буду смотреть</label>
+      <div class="tab">
+          <table class="table" cellspacing="0">
+              <thead>
+                  <br></br>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td><a href="#">Фильм 3</a></td>
+                      <td>Инфо</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+
+      <input type="radio" id="tab-quit" name="filtab">
+      <label for="tab-quit" id="quit">Бросил</label>
+      <div class="tab">
+          <table class="table" cellspacing="0">
+              <thead>
+                  <br></br>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td><a href="#">Фильм 4</a></td>
+                      <td>Инфо</td>
+                  </tr>
+              </tbody>
+          </table>
+      </div>
+  </section>
+
+  <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'js/jquery-3.6.1.js' %}"></script>
+</body>
+</html>

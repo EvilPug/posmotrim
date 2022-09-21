@@ -9,8 +9,12 @@
     <style> input {max-width: 36em};</style>
 
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet"/>
-    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
-  	<link type="text/css" rel="stylesheet" href="{% static 'css/FilmPageStyle.css' %}">
+    <link href="{% static 'css/FilmPageStyle.css' %}" rel="stylesheet">
+
+    <link type="image/png" href="{% static 'favicon.ico' %}" rel="shortcut icon"/>
+
+    <link href="{% static 'css/all.css' %}" rel="stylesheet">
+    <link href="{% static 'css/montserrat.css.css' %}" rel="stylesheet">
 
     <title>{% block title %}Посмотрим{% endblock %}</title>
   </head>
@@ -19,7 +23,7 @@
 
 		<div class="nav">
 			<div class="logo_pic">
-				<a href="#homepage"><img src="{% static 'images/logo.png' %}"></a>
+				<a href="/"><img src="{% static 'images/logo.png' %}"></a>
 			</div>
       {% if user.is_authenticated %}
       <span class="">{{user.username}}</span>

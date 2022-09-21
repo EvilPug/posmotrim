@@ -5,7 +5,7 @@ from tracker.models import Film
 
 
 def home(request):
-    return render(request, 'HomePage.html')
+    return render(request, 'index.html')
 
 
 def search_results(request):

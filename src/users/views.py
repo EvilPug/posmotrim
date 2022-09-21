@@ -4,6 +4,16 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 
+from .models import Spectator
+
+
+def user_detail(request, pk):
+    user = Spectator.objects.get(pk=pk)
+    req_user = request.user
+    user_watched = list(user.films.keys())
+
+    return render(request, 'user_detail.html', context={'user': user})
+
 
 def register_request(request):
     if request.method == "POST":
