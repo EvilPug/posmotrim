@@ -23,7 +23,7 @@
 
 			<div class="profile_pic">
         {% if user.is_authenticated %}
-				<a href="profile"><img src="{% static 'images/person-circle.svg' %}"></a>
+				<a href="/users/{{ user.pk }}"><img src="{% static 'images/person-circle.svg' %}"></a>
         {% else %}
         <a href="login"><img src="{% static 'images/person-circle.svg' %}"></a>
         {% endif %}
@@ -41,6 +41,38 @@
 	</header>
 
   <section>
+    <div class="container px-4 text-center">
+          <div class="row gx-4 gy-5">
+            <div class="col-md-5 d-flex justify-content-center" style="background-color: #E86262;">
+              <div class="row gx-3">
+                <h5>Лучшее в жанре комедия</h5>
+                {% for film in comedy %}
+                <div class="col justify-content-center">
+                  <a href="film/{{ film.pk }}">
+                    <div class="selection-pic">
+                      <img src="https://kinopoiskapiunofficial.tech/images/posters/kp/{{ film.kinopoisk_id }}.jpg">
+                    </div>
+                  </a>
+                </div>
+                {% endfor %}
+              </div>
+              <br>
+            </div>
+            <div class="col-md-5 d-flex offset-1 justify-content-center" style="background-color: #E7B05D;">
+              <div class="row gx-3">
+                <h5>Лучшее в жанре драма</h5>
+                {% for film in drama %}
+                <div class="col justify-content-center">
+                  <a href="film/{{ film.pk }}">
+                    <div class="selection-pic">
+                      <img src="https://kinopoiskapiunofficial.tech/images/posters/kp/{{ film.kinopoisk_id }}.jpg">
+                    </div>
+                  </a>
+                </div>
+                {% endfor %}
+              </div>
+              <br>
+            </div>
   </section>
 
 

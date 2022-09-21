@@ -29,9 +29,9 @@ body {
     z-index:10;
 }
 .main_logo {
-	width: 250px;
-	height: 200px;
-	display: block;
+    width: 250px;
+    height: 200px;
+    display: block;
     position: relative;
     overflow: hidden;
     vertical-align: middle;
@@ -75,6 +75,7 @@ body {
 .item {
 	text-decoration: none;
 	color: black;
+    z-index: 8;
 }
 .item .film-pic {
 	width:80px;
@@ -88,6 +89,37 @@ body {
 }
 .item .film-pic img {
 	position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:100%;
+    display:inline-block;
+}
+.container {
+    padding-top: 2%;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+.container .row {
+    margin-bottom: 20px;
+}
+h5 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: 700;
+}
+.selection-pic {
+    width:150px;
+    display:inline-block;
+    position:relative;
+    height:200px;
+    overflow:hidden;
+    vertical-align: middle;
+    margin-right: 5%;
+    margin-left: auto;
+}
+.selection-pic img {
+    position:absolute;
     top:50%;
     left:50%;
     transform:translate(-50%,-50%);
