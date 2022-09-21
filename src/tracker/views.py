@@ -5,7 +5,10 @@ from tracker.models import Film
 
 
 def home(request):
-    return render(request, 'index.html')
+    comedy = Film.objects.filter(genres__icontains="комедия").order_by('-rating_imdb')[:3]
+    drama = Film.objects.filter(genres__icontains="драма").order_by('-rating_imdb')[:3]
+    return render(request, 'index.html', context={'comedy': comedy,
+                                                    'drama': drama})
 
 
 def search_results(request):
