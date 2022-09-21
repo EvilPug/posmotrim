@@ -58,10 +58,14 @@
                   <br></br>
               </thead>
               <tbody>
+                  {% for film in watching %}
                   <tr>
-                      <td><a href="#">Фильм 1</a></td>
-                      <td>Инфо</td>
+                      <td><a id="pic-wrapper" href="/film/{{ film.pk }}">
+                        <img src="https://kinopoiskapiunofficial.tech/images/posters/kp/{{ film.pk }}.jpg">
+                      </a></td>
+                      <td><a id="film-link" href="/film/{{ film.pk }}">{{ film.name }}</a></td>
                   </tr>
+                  {% endfor %}
               </tbody>
           </table>
       </div>
@@ -74,10 +78,14 @@
                   <br></br>
               </thead>
               <tbody>
+                  {% for film in watched %}
                   <tr>
-                      <td><a href="#">Фильм 2</a></td>
-                      <td>Инфо</td>
+                      <td><a id="pic-wrapper" href="/film/{{ film.pk }}">
+                        <img src="https://kinopoiskapiunofficial.tech/images/posters/kp/{{ film.pk }}.jpg">
+                      </a></td>
+                      <td><a id="film-link" href="/film/{{ film.pk }}">{{ film.name }}</a></td>
                   </tr>
+                  {% endfor %}
               </tbody>
           </table>
       </div>
@@ -90,11 +98,14 @@
                   <br></br>
               </thead>
               <tbody>
+                  {% for film in plan %}
                   <tr>
-                      <td><a href="#">Фильм 3</a></td>
-                      <td>Инфо</td>
+                      <td><a id="pic-wrapper" href="/film/{{ film.pk }}">
+                        <img src="https://kinopoiskapiunofficial.tech/images/posters/kp/{{ film.pk }}.jpg">
+                      </a></td>
+                      <td><a id="film-link" href="/film/{{ film.pk }}">{{ film.name }}</a></td>
                   </tr>
-              </tbody>
+                  {% endfor %}              </tbody>
           </table>
       </div>
 
@@ -106,10 +117,14 @@
                   <br></br>
               </thead>
               <tbody>
+                  {% for film in quit %}
                   <tr>
-                      <td><a href="#">Фильм 4</a></td>
-                      <td>Инфо</td>
+                      <td><a id="pic-wrapper" href="/film/{{ film.pk }}">
+                        <img src="https://kinopoiskapiunofficial.tech/images/posters/kp/{{ film.pk }}.jpg">
+                      </a></td>
+                      <td><a id="film-link" href="/film/{{ film.pk }}">{{ film.name }}</a></td>
                   </tr>
+                  {% endfor %}
               </tbody>
           </table>
       </div>
