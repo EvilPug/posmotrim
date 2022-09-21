@@ -3,9 +3,9 @@ import pandas as pd
 from sqlalchemy import create_engine
 
 
-pg_db = os.environ.get('POSTGRES_NAME')
-pg_user = os.environ.get('POSTGRES_USER')
-pg_pwd = os.environ.get('POSTGRES_PASSWORD')
+pg_db = os.environ.get('POSTGRES_NAME', default='postgres')
+pg_user = os.environ.get('POSTGRES_USER', default='postgres')
+pg_pwd = os.environ.get('POSTGRES_PASSWORD', default='postgres')
 
 engine = create_engine(f'postgresql://{pg_user}:{pg_pwd}@db:5432/{pg_db}')
 
@@ -25,3 +25,5 @@ columns = ['kinopoisk_id', 'name', 'slogan', 'description', 'genres',
 df = df[columns]
 
 df.to_sql('tracker_film', engine, if_exists='replace')
+
+print('Таблица tracker_film успешно заполнена!')
