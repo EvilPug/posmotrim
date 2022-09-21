@@ -5,14 +5,34 @@ from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 
 from .models import Spectator
+from tracker.models import Film
 
 
 def user_detail(request, pk):
     user = Spectator.objects.get(pk=pk)
     req_user = request.user
-    user_watched = list(user.films.keys())
+    films = list(user.films.keys())
+    watched, watching, plan, quit = [], [], [], []
+    for film in films:
+        stats = user.films.get(film)
+        if stats['status'] == 'watched':
+            watched.append({'pk': film,
+                            'name': Film.objects.get(pk=films[0]).name})
+        elif stats['status'] == 'watching':
+            watching.append({'pk': film,
+                            'name': Film.objects.get(pk=films[0]).name})
+        elif stats['status'] == 'plan':
+            plan.append({'pk': film,
+                            'name': Film.objects.get(pk=films[0]).name})
+        elif stats['status'] == 'quit':
+            quit.append({'pk': film,
+                            'name': Film.objects.get(pk=films[0]).name})
 
-    return render(request, 'user_detail.html', context={'user': user})
+    return render(request, 'user_detail.html', context={'user': user,
+                                                        'watched': watched,
+                                                        'watching': watching,
+                                                        'plan': plan,
+                                                        'quit': quit})
 
 
 def register_request(request):

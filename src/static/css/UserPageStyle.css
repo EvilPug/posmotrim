@@ -206,3 +206,26 @@ body{background:#F0F4F9;}
 .filter-tabs input[type="radio"]:checked + #quit {
     background: #9D9D9D;
 }
+.filter-tabs .tab #pic-wrapper {
+    width:150px;
+    display:inline-block;
+    position:relative;
+    height:200px;
+    overflow:hidden;
+    vertical-align: middle;
+    margin-right: 5%;
+    margin-left: auto;
+}
+.filter-tabs .tab #pic-wrapper img {
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:100%;
+    display:inline-block;
+    z-index:10;
+}
+.filter-tabs #film-link {
+    text-decoration: none;
+    color: #000;
+}
