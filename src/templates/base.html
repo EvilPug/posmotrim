@@ -26,11 +26,24 @@
 				<a href="/"><img src="{% static 'images/logo.png' %}"></a>
 			</div>
       {% if user.is_authenticated %}
-      <span class="">{{user.username}}</span>
+      <div class="dropdown" id="profile-dropdown">
+        <button class="btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <div class="profile_pic">
+            <img src="{% static 'images/person-circle.svg' %}">
+          </div>
+        </button>
+        <p>{{ user.username }}</p>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="/users/{{ user.pk }}">Профиль</a></li>
+          <li><a class="dropdown-item" href="#">Друзья</a></li>
+          <li><a class="dropdown-item" href="/users/logout">Выйти</a></li>
+        </ul>
+      </div>
+      {% else %}
+        <div class="profile_pic">
+          <a href="/users/login"><img src="{% static 'images/person-circle.svg' %}"></a>
+        </div>
       {% endif %}
-			<div class="profile_pic">
-				<a href="profile"><img src="{% static 'images/person-circle.svg' %}"></a>
-			</div>
     </div>
 	</header>
 
