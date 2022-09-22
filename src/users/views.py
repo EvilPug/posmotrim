@@ -9,6 +9,7 @@ from tracker.models import Film
 
 
 def user_detail(request, pk):
+    login_user = request.user
     user = Spectator.objects.get(pk=pk)
     req_user = request.user
     films = list(user.films.keys())
@@ -29,6 +30,7 @@ def user_detail(request, pk):
                             'name': Film.objects.get(pk=films[0]).name})
 
     return render(request, 'user_detail.html', context={'user': user,
+                                                        'login_user': login_user,
                                                         'watched': watched,
                                                         'watching': watching,
                                                         'plan': plan,

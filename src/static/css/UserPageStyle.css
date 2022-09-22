@@ -127,8 +127,16 @@ body{background:#F0F4F9;}
     display:inline-block;
     z-index:10;
 }
-
-
+.friend-request {
+    padding-top: 2%;
+    position: absolute;
+    display: block;
+    margin-left: 80%;
+    margin-right: auto;
+}
+.friend-request button {
+    width: fit-content;
+}
 .project-tab {
     padding: 10%;
     margin-top: 1%;
