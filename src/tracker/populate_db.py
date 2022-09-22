@@ -9,7 +9,7 @@ pg_pwd = os.environ.get('POSTGRES_PASSWORD', default='postgres')
 
 engine = create_engine(f'postgresql://{pg_user}:{pg_pwd}@db:5432/{pg_db}')
 
-df = pd.read_csv('../../data_analysis/prepared_data.csv',
+df = pd.read_csv('/code/data_analysis/prepared_data.csv',
                  converters={'genres': pd.eval})
 
 
@@ -24,6 +24,10 @@ columns = ['kinopoisk_id', 'name', 'slogan', 'description', 'genres',
 
 df = df[columns]
 
+df_close = pd.read_csv('/code/data_analysis/close_films.csv',
+                       converters={'close': pd.eval})
+
+df['close'] = df_close['close']
 df.to_sql('tracker_film', engine, if_exists='replace')
 
 print('Таблица tracker_film успешно заполнена!')
