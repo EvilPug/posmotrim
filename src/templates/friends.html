@@ -1,44 +1,43 @@
 {% extends 'base.html' %}
 {% block content %}
 	<section>
-		
+		<div class="input-group mb-3">
+      		{% csrf_token %}
+      		<input type="text" class="form-control" id="SearchInput" placeholder="Найти друга" aria-label="FilmSearch">
+    	</div>
+    	<div id="result-box" class="result-card not-visible">
+    	</div>
+		<div class="requests">
+			<div class="dropdown-requests">
+  				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">Запросы в друзья</button>
+  				<ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+  					{% for request in requests %}
+    				<li>
+    					<a class="dropdown-item" href="/users/{{ request.from_user.pk }}">{{ request.from_user.username }}</a>
+    					<button type="button" class="btn btn-primary" id="accept" style="background-color: green" onclick="window.location.href='/users/accept/{{ request.from_user.pk }}';">Принять</button>
+    					<button type="button" class="btn btn-primary"
+    					id="reject" style="background-color: red" onclick="window.location.href='/users/reject/{{ request.from_user.pk }}';">Отклонить</button>
+    				</li>
+    				{% endfor %}
+  				</ul>
+			</div>
+		</div>
 		<div class="friends_list">
 			<div class="container text-center">
   				<div class="row gx-10">
-    				<div class="col-md-4 d-flex justify-content-center">
+  					{% for friend in friends %}
+    				<div class="d-flex justify-content-center">
     					<div class="friend_card">
     						<div class="friend_pic">
     							<img src="https://cdn-icons-png.flaticon.com/512/149/149071.png">
     						</div>
-    						<p class="text-center"><a href="#">Username</a></p>
+    						<p class="text-center"><a href="/users/{{ friend.pk }}">{{ friend.username }}</a></p>
     					</div>
     				</div>
-    				<div class="col-md-4 d-flex justify-content-center">
-    					<div class="friend_card">
-    						<div class="friend_pic">
-    							<img src="https://cdn-icons-png.flaticon.com/512/149/149071.png">
-    						</div>
-    						<p><a href="#">Username</a></p>
-    					</div>
-    				</div>
-    				<div class="col-md-4 d-flex justify-content-center">
-    					<div class="friend_card">
-    						<div class="friend_pic">
-    							<img src="https://cdn-icons-png.flaticon.com/512/149/149071.png">
-    						</div>
-    						<p><a href="#">Username</a></p>
-    					</div>
-    				</div>
-    				<div class="col-md-4 d-flex justify-content-center">
-    					<div class="friend_card">
-    						<div class="friend_pic">
-    							<img src="https://cdn-icons-png.flaticon.com/512/149/149071.png">
-    						</div>
-    						<p><a href="#">Username</a></p>
-    					</div>
-    				</div>
+    				{% endfor %}
   				</div>
   			</div>
 		</div>
 	</section>
+
 {% endblock %}

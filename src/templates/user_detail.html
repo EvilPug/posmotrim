@@ -1,4 +1,5 @@
 {% load static %}
+{% load friendshiptags %}
 <!DOCTYPE html>
 <html lang="en" >
 <head>
@@ -40,7 +41,7 @@
                 </div>
               </button>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">Друзья</a></li>
+                <li><a class="dropdown-item" href="/users/friends">Друзья</a></li>
                 <li><a class="dropdown-item" href="/users/logout">Выйти</a></li>
               </ul>
           </div>
@@ -50,8 +51,8 @@
   </div>
 
   <div class="friend-request">
-    {% if user.pk != login_user.pk %}
-      <button class="btn btn-primary" type="button">Добавить в друзья</button>
+    {% if user.pk != request.user.pk %}
+      <button class="btn btn-primary" type="button" onclick="window.location.href='/users/friend-request/{{ user.pk }}';">Добавить в друзья</button>
     {% else %}
     <span></span>
     {% endif %}
