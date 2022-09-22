@@ -49,6 +49,14 @@
     </div>
   </div>
 
+  <div class="friend-request">
+    {% if user.pk != login_user.pk %}
+      <button class="btn btn-primary" type="button">Добавить в друзья</button>
+    {% else %}
+    <span></span>
+    {% endif %}
+  </div>
+
   <section id="tabs" class="filter-tabs">
       <input type="radio" id="tab-watching" name="filtab" checked="checked">
       <label for="tab-watching" id="watching">Смотрю</label>
