@@ -24,8 +24,7 @@
 
 Затем необходимо заполнить таблицу фильмов
 
-    cd ./tracker
-    python populate_db.py
+    python tracker/populate_db.py
 
 После этого можно создать суперпользователя
 
