@@ -11,34 +11,45 @@ from friendship.models import Friend, FriendshipRequest
 
 
 def user_detail(request, pk):
-    user = Spectator.objects.get(pk=pk)
-    req_user = request.user
-    films = list(user.films.keys())
-    watched, watching, plan, quit = [], [], [], []
-    for film in films:
-        stats = user.films.get(film)
-        if stats['status'] == 'watched':
-            watched.append({'pk': film,
-                            'name': Film.objects.get(pk=films[0]).name})
-        elif stats['status'] == 'watching':
-            watching.append({'pk': film,
-                            'name': Film.objects.get(pk=films[0]).name})
-        elif stats['status'] == 'plan':
-            plan.append({'pk': film,
-                            'name': Film.objects.get(pk=films[0]).name})
-        elif stats['status'] == 'quit':
-            quit.append({'pk': film,
-                            'name': Film.objects.get(pk=films[0]).name})
+    if request.user.is_authenticated:
+        user = Spectator.objects.get(pk=pk)
+        req_user = request.user
+        films = list(user.films.keys())
+        watched, watching, plan, quit = [], [], [], []
+        for film in films:
+            stats = user.films.get(film)
+            if stats['status'] == 'watched':
+                watched.append({'pk': film,
+                                'name': Film.objects.get(pk=films[0]).name})
+            elif stats['status'] == 'watching':
+                watching.append({'pk': film,
+                                'name': Film.objects.get(pk=films[0]).name})
+            elif stats['status'] == 'plan':
+                plan.append({'pk': film,
+                                'name': Film.objects.get(pk=films[0]).name})
+            elif stats['status'] == 'quit':
+                quit.append({'pk': film,
+                                'name': Film.objects.get(pk=films[0]).name})
 
-    rqs = Friend.objects.sent_requests(user=request.user)
-    print(rqs)
+        is_friends = Friend.objects.are_friends(request.user, user)
+        if is_friends:
+            is_friends = 'friends'
+        else:
+            rqs = Friend.objects.sent_requests(user=request.user)
+            is_friends = 'nothing'
+            for rq in rqs:
+                if rq.to_user.pk == pk:
+                    is_friends = 'requested'
 
-    return render(request, 'user_detail.html', context={'user': user,
-                                                        'watched': watched,
-                                                        'watching': watching,
-                                                        'plan': plan,
-                                                        'quit': quit,
-                                                        'rqs': rqs})
+
+        return render(request, 'user_detail.html', context={'user': user,
+                                                            'watched': watched,
+                                                            'watching': watching,
+                                                            'plan': plan,
+                                                            'quit': quit,
+                                                            'is_friends': is_friends})
+    else:
+        return login_request(request)
 
 
 def friends_detail(request):
