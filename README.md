@@ -1,6 +1,30 @@
 # Сервис трекинга фильмов "Посмотрим"
 
-#### Как развернуть проект?
+## Описание
+
+sample text
+
+## Скриншоты
+
+#### Главная
+
+<p align="center">
+  <img src="https://github.com/EvilPug/posmotrim/blob/e063f65dfccdb82248386df7a8138712b25b9d82/screenshots/main.png?raw=true" />
+</p>
+
+#### Описание фильма
+
+<p align="center">
+  <img src="https://github.com/EvilPug/posmotrim/blob/e063f65dfccdb82248386df7a8138712b25b9d82/screenshots/film_detail.png?raw=true" />
+</p>
+
+#### Профиль пользователя
+
+<p align="center">
+  <img src="https://github.com/EvilPug/posmotrim/blob/e063f65dfccdb82248386df7a8138712b25b9d82/screenshots/profile.png?raw=true" />
+</p>
+
+## Как развернуть проект?
 
 Создать .env файл в корне проекта со следующим содержимым:
 
@@ -32,7 +56,7 @@
 
 *Запущенный сервер доступен по адресу 127.0.0.1:8000*
 
-#### Если что-то пошло не так
+### Если что-то пошло не так
 
 1)Останавливаем контейнер web (контейнер db должен остаться включенным)
 
@@ -70,23 +94,3 @@
 8)После этого можно создать суперпользователя
 
     python manage.py createsuperuser
-
-## Скриншоты
-
-#### Главная
-
-<p align="center">
-  <img src="https://github.com/EvilPug/posmotrim/blob/e063f65dfccdb82248386df7a8138712b25b9d82/screenshots/main.png?raw=true" />
-</p>
-
-#### Описание фильма
-
-<p align="center">
-  <img src="https://github.com/EvilPug/posmotrim/blob/e063f65dfccdb82248386df7a8138712b25b9d82/screenshots/film_detail.png?raw=true" />
-</p>
-
-#### Профиль пользователя
-
-<p align="center">
-  <img src="https://github.com/EvilPug/posmotrim/blob/e063f65dfccdb82248386df7a8138712b25b9d82/screenshots/profile.png?raw=true" />
-</p>
