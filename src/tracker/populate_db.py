@@ -28,6 +28,6 @@ df_close = pd.read_csv('/code/data_analysis/close_films.csv',
                        converters={'close': pd.eval})
 
 df['close'] = df_close['close']
-df.to_sql('tracker_film', engine, if_exists='replace')
+df.to_sql('tracker_film', engine, if_exists='append', index=False)
 
 print('Таблица tracker_film успешно заполнена!')

@@ -8,7 +8,7 @@ def home(request):
     comedy = Film.objects.filter(genres__icontains="комедия").order_by('-rating_imdb')[:3]
     drama = Film.objects.filter(genres__icontains="драма").order_by('-rating_imdb')[:3]
     return render(request, 'index.html', context={'comedy': comedy,
-                                                    'drama': drama})
+                                                  'drama': drama})
 
 
 def search_results(request):
@@ -33,6 +33,7 @@ def search_results(request):
 
 def film_detail(request, pk):
     film = Film.objects.get(pk=pk)
+    close_films = Film.objects.filter(pk__in=film.close)
     user = request.user
 
     if user.is_anonymous:
@@ -47,4 +48,5 @@ def film_detail(request, pk):
             stats = {'rated': None, 'status': None}
 
     return render(request, 'film_detail.html', context={'film': film,
-                                                        'stats': stats})
+                                                        'stats': stats,
+                                                        'close_films': close_films})

@@ -11,9 +11,19 @@
       <div class="col">
         <div class="row gy-3 gx-1">
             <div class="col-md-offset-8"><h2>{{ film.name }}</h2></div>
-            <div class="col-md-8">
+            <div class="col-md-12">
               <p>
                 {{ film.description }}
+              </p>
+            </div>
+            <div class="col-md-8">
+              <p>
+                  <b>Жанры:</b> {% for genre in film.genres %}{{ genre }}/{% endfor %}
+              </p>
+            </div>
+            <div class="col-md-8">
+              <p>
+                  <b>Год:</b> {{ film.year }}
               </p>
             </div>
           </div>
@@ -25,7 +35,7 @@
           <div class="rating-tag">
             {% if stats.rated %}
             <span class="rating">
-              <font size="+3">{{ stats.rated }}/</font><font size="+1">5,</font>
+              <font size="+3">{{ stats.rated }}/</font><font size="+1">10</font>
             </span>
             {% else %}
             <span>Rate</span>
@@ -56,47 +66,17 @@
           <h4>Похожие</h4>
           <br>
           <div class="row row-cols-1 row-cols-md-5 g-4">
+          {% for cl_film in close_films %}
             <div class="col">
               <div class="card">
-                <img class="card-img-top" src="../static/images/midsommar.jpg" alt="Card image cap">
+                <a href="/film/{{ cl_film.kinopoisk_id }}"><img class="card-img-top" src="https://kinopoiskapiunofficial.tech/images/posters/kp/{{ cl_film.kinopoisk_id }}.jpg" alt="Card image cap"></a>
                 <div class="card-body">
-                    <h5 class="card-title">Midsommar</h5>
+                    <h5 class="card-title">{{ cl_film.name }}</h5>
                 </div>
               </div>
+            </div>
+          {% endfor %}
           </div>
-          <div class="col">
-              <div class="card">
-                <img class="card-img-top" src="../static/images/midsommar.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Midsommar</h5>
-                </div>
-              </div>
-          </div>
-          <div class="col">
-              <div class="card">
-                <img class="card-img-top" src="../static/images/midsommar.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Midsommar</h5>
-                </div>
-              </div>
-          </div>
-          <div class="col">
-              <div class="card">
-                <img class="card-img-top" src="../static/images/midsommar.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Midsommar</h5>
-                </div>
-              </div>
-          </div>
-          <div class="col">
-              <div class="card">
-                <img class="card-img-top" src="../static/images/midsommar.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Midsommar</h5>
-                </div>
-              </div>
-          </div>
-        </div>
         </div>
       </div>
   </div>
