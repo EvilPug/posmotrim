@@ -50,3 +50,7 @@ def film_detail(request, pk):
     return render(request, 'film_detail.html', context={'film': film,
                                                         'stats': stats,
                                                         'close_films': close_films})
+
+
+def film_rate(request, pk):
+    return render(request, 'film_detail.html')
