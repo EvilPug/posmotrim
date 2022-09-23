@@ -73,18 +73,20 @@
 
 ## Скриншоты
 
-<p align="center">
-  <img src="" />
-</p>
+#### Главная
 
 <p align="center">
-  <img src="" />
+  <img src="https://github.com/EvilPug/posmotrim/blob/e063f65dfccdb82248386df7a8138712b25b9d82/screenshots/main.png?raw=true" />
 </p>
 
-<p align="center">
-  <img src="" />
-</p>
+#### Описание фильма
 
 <p align="center">
-  <img src="" />
+  <img src="https://github.com/EvilPug/posmotrim/blob/e063f65dfccdb82248386df7a8138712b25b9d82/screenshots/film_detail.png?raw=true" />
+</p>
+
+#### Профиль пользователя
+
+<p align="center">
+  <img src="https://github.com/EvilPug/posmotrim/blob/e063f65dfccdb82248386df7a8138712b25b9d82/screenshots/profile.png?raw=true" />
 </p>
