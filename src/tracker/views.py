@@ -53,8 +53,20 @@ def film_detail(request, pk):
                                                         'close_films': close_films})
 
 
-def film_rate(request, pk):
-    return render(request, 'film_detail.html')
+def film_rate(request, pk, rating):
+
+    if request.user.is_authenticated:
+        user = Spectator.objects.get(pk=request.user.pk)
+        user_films = list(user.films.keys())
+
+        if str(pk) in user_films:
+            user.films.get(str(pk))['rated'] = rating
+            user.save()
+        else:
+            user.films.update({str(pk): {'rated': rating}})
+            user.save()
+
+    return redirect('/film/' + str(pk))
 
 
 def tag_film(request, pk):
@@ -66,9 +78,7 @@ def tag_film(request, pk):
             user.films.get(str(pk))['status'] = new_status
             user.save()
         else:
-            user.films.update({str(pk): {
-                                                "rated": 0,
-                                                "status": new_status}})
+            user.films.update({str(pk): {'rated': 0, 'status': new_status}})
             user.save()
 
         return redirect('/film/' + str(pk))

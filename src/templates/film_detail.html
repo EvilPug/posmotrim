@@ -29,7 +29,7 @@
           </div>
       </div>
     </div>
-    <div class=" row g-2 mt-0 pt-2">
+    <div class="row g-2 mt-0 pt-2">
         <div class="col-md-4">
           {% if user.is_authenticated %}
           <div class="rating-tag">
@@ -48,6 +48,18 @@
             {% else %}
             <span></span>
             {% endif %}
+          </div>
+          <div class="col-md-4 rating rating2">
+            <a href="{{ film.pk }}/rate/10" title="Give 5 stars" data-value="10">★</a>
+            <a href="{{ film.pk }}/rate/9" title="Give 5 stars" data-value="9">★</a>
+            <a href="{{ film.pk }}/rate/8" title="Give 4 stars" data-value="8">★</a>
+            <a href="{{ film.pk }}/rate/7" title="Give 3 stars" data-value="7">★</a>
+            <a href="{{ film.pk }}/rate/6" title="Give 5 stars" data-value="6">★</a>
+            <a href="{{ film.pk }}/rate/5" title="Give 5 stars" data-value="5">★</a>
+            <a href="{{ film.pk }}/rate/4" title="Give 4 stars" data-value="4">★</a>
+            <a href="{{ film.pk }}/rate/3" title="Give 3 stars" data-value="3">★</a>
+            <a href="{{ film.pk }}/rate/2" title="Give 2 stars" data-value="2">★</a>
+            <a href="{{ film.pk }}/rate/1" title="Give 1 star" data-value="1">★</a>
           </div>
           <div class="dropdown">
             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
