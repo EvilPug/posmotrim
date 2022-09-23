@@ -15,21 +15,22 @@ def user_detail(request, pk):
         user = Spectator.objects.get(pk=pk)
         req_user = request.user
         films = list(user.films.keys())
+        print(films)
         watched, watching, plan, quit = [], [], [], []
         for film in films:
             stats = user.films.get(film)
             if stats['status'] == 'watched':
                 watched.append({'pk': film,
-                                'name': Film.objects.get(pk=films[0]).name})
+                                'name': Film.objects.get(pk=film).name})
             elif stats['status'] == 'watching':
                 watching.append({'pk': film,
-                                'name': Film.objects.get(pk=films[0]).name})
+                                'name': Film.objects.get(pk=film).name})
             elif stats['status'] == 'plan':
                 plan.append({'pk': film,
-                                'name': Film.objects.get(pk=films[0]).name})
+                                'name': Film.objects.get(pk=film).name})
             elif stats['status'] == 'quit':
                 quit.append({'pk': film,
-                                'name': Film.objects.get(pk=films[0]).name})
+                                'name': Film.objects.get(pk=film).name})
 
         is_friends = Friend.objects.are_friends(request.user, user)
         if is_friends:
