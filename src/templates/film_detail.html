@@ -54,10 +54,10 @@
               Разметить
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" id="watching" href="#">Смотрю</a></li>
-              <li><a class="dropdown-item" id="watched" href="#">Посмотрел</a></li>
-              <li><a class="dropdown-item" id="plan" href="#">Буду смотреть</a></li>
-              <li><a class="dropdown-item" id="quit" href="#">Бросил</a></li>
+              <li><a class="dropdown-item" id="watching" href="/watching/{{ film.pk }}">Смотрю</a></li>
+              <li><a class="dropdown-item" id="watched" href="/watched/{{ film.pk }}">Посмотрел</a></li>
+              <li><a class="dropdown-item" id="plan" href="/plan/{{ film.pk }}">Буду смотреть</a></li>
+              <li><a class="dropdown-item" id="quit" href="/quit/{{ film.pk }}">Бросил</a></li>
             </ul>
           </div>
           {% endif %}
