@@ -90,3 +90,6 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+# desktop.ini file
+desktop.ini
