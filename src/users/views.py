@@ -42,7 +42,6 @@ def user_detail(request, pk):
                 if rq.to_user.pk == pk:
                     is_friends = 'requested'
 
-
         return render(request, 'user_detail.html', context={'user': user,
                                                             'watched': watched,
                                                             'watching': watching,
@@ -110,7 +109,7 @@ def register_request(request):
             user = form.save()
             login(request, user)
             messages.success(request, "Регистрация успешна.")
-            return redirect("home")
+            return redirect("tracker:home")
         messages.error(request, "Неверно введены данные.")
     form = SpectatorCreationForm()
     return render(request=request, template_name="register.html",
@@ -127,7 +126,7 @@ def login_request(request):
             if user is not None:
                 login(request, user)
                 messages.info(request, f"Вы авторизованы как {username}.")
-                return redirect("home")
+                return redirect("tracker:home")
             else:
                 messages.error(
                     request, "Неправильное имя пользователя или пароль.")
@@ -141,4 +140,4 @@ def login_request(request):
 def logout_request(request):
     logout(request)
     messages.info(request, "Вы вышли из аккаунта.")
-    return redirect("home")
+    return redirect("tracker:home")
