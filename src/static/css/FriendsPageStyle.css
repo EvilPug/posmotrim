@@ -52,19 +52,14 @@ body {
 .requests .dropdown-requests {
     padding-top: 2%;
     position: relative;
-    display: block;
-    margin-left: 80%;
-    margin-right: auto;
 }
 .requests .dropdown-requests .dropdown-menu a {
     justify-content: center;
 }
 .input-group {
     display: flex;
-    position: absolute;
+    position: relative;
     justify-content: center;
-    margin-right: auto;
-    margin-left: auto;
 }
 .input-group #SearchInput {
     text-align: center;
@@ -72,7 +67,7 @@ body {
 .not-visible {
     display: none;
 }
-.input-group .result-card {
+.result-card {
     position: relative;
     width: 50%;
     background-color: white;
@@ -80,10 +75,12 @@ body {
     transition: 0.5s;
     border-radius: 7px;
     padding: 15px 15px;
-    margin: 0 auto;
+    margin-right: auto;
+    margin-left: auto;
 }
 .friends_list {
     padding-top: 5%;
+    position: relative;
 
 }
 .friends_list .friend_card .friend_pic {
