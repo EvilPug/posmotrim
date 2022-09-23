@@ -1,6 +1,7 @@
-.rating {
+.rating2 {
   width: 300px;
-  margin: 0 auto 1em;
+  margin-right: 25%;
+  margin-left: auto;
   font-size: 20px;
   overflow:hidden;
 }
