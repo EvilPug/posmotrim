@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import JsonResponse
 
 from tracker.models import Film
+from users.models import Spectator
 
 
 def home(request):
@@ -54,3 +55,20 @@ def film_detail(request, pk):
 
 def film_rate(request, pk):
     return render(request, 'film_detail.html')
+
+
+def tag_film(request, pk):
+    new_status = request.path.split('/')[1]
+    if request.user.is_authenticated:
+        user = Spectator.objects.get(pk=request.user.pk)
+        user_films = list(user.films.keys())
+        if str(pk) in user_films:
+            user.films.get(str(pk))['status'] = new_status
+            user.save()
+        else:
+            user.films.update({str(pk): {
+                                                "rated": 0,
+                                                "status": new_status}})
+            user.save()
+
+        return redirect('/film/' + str(pk))
