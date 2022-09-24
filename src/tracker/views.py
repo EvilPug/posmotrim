@@ -69,16 +69,16 @@ def film_rate(request, pk, rating):
     return redirect('/film/' + str(pk))
 
 
-def tag_film(request, pk):
-    new_status = request.path.split('/')[1]
+def film_tag(request, pk, status):
+
     if request.user.is_authenticated:
         user = Spectator.objects.get(pk=request.user.pk)
         user_films = list(user.films.keys())
         if str(pk) in user_films:
-            user.films.get(str(pk))['status'] = new_status
+            user.films.get(str(pk))['status'] = status
             user.save()
         else:
-            user.films.update({str(pk): {'rated': 0, 'status': new_status}})
+            user.films.update({str(pk): {'rated': 0, 'status': status}})
             user.save()
 
         return redirect('/film/' + str(pk))
