@@ -6,8 +6,10 @@ from users.models import Spectator
 
 
 def home(request):
-    comedy = Film.objects.filter(genres__icontains="комедия").order_by('-rating_imdb')[:3]
-    drama = Film.objects.filter(genres__icontains="драма").order_by('-rating_imdb')[:3]
+    comedy = Film.objects.filter(
+        genres__icontains="комедия").order_by('-rating_imdb')[:3]
+    drama = Film.objects.filter(
+        genres__icontains="драма").order_by('-rating_imdb')[:3]
     return render(request, 'index.html', context={'comedy': comedy,
                                                   'drama': drama})
 
@@ -48,9 +50,10 @@ def film_detail(request, pk):
         else:
             stats = {'rated': None, 'status': None}
 
-    return render(request, 'film_detail.html', context={'film': film,
-                                                        'stats': stats,
-                                                        'close_films': close_films})
+    return render(request, 'film_detail.html',
+                  context={'film': film,
+                           'stats': stats,
+                           'close_films': close_films})
 
 
 def film_rate(request, pk, rating):

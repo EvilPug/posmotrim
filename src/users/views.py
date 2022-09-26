@@ -13,9 +13,7 @@ from friendship.models import Friend, FriendshipRequest
 def user_detail(request, pk):
     if request.user.is_authenticated:
         user = Spectator.objects.get(pk=pk)
-        req_user = request.user
         films = list(user.films.keys())
-        print(films)
         watched, watching, plan, quit = [], [], [], []
         for film in films:
             stats = user.films.get(film)
@@ -27,10 +25,10 @@ def user_detail(request, pk):
                                 'name': Film.objects.get(pk=film).name})
             elif stats['status'] == 'plan':
                 plan.append({'pk': film,
-                                'name': Film.objects.get(pk=film).name})
+                             'name': Film.objects.get(pk=film).name})
             elif stats['status'] == 'quit':
                 quit.append({'pk': film,
-                                'name': Film.objects.get(pk=film).name})
+                             'name': Film.objects.get(pk=film).name})
 
         is_friends = Friend.objects.are_friends(request.user, user)
         if is_friends:
@@ -42,12 +40,13 @@ def user_detail(request, pk):
                 if rq.to_user.pk == pk:
                     is_friends = 'requested'
 
-        return render(request, 'user_detail.html', context={'user': user,
-                                                            'watched': watched,
-                                                            'watching': watching,
-                                                            'plan': plan,
-                                                            'quit': quit,
-                                                            'is_friends': is_friends})
+        return render(request, 'user_detail.html',
+                               context={'user': user,
+                                        'watched': watched,
+                                        'watching': watching,
+                                        'plan': plan,
+                                        'quit': quit,
+                                        'is_friends': is_friends})
     else:
         return login_request(request)
 
@@ -90,14 +89,16 @@ def friend_request(request, pk):
 
 def accept_request(request, pk):
     other_user = Spectator.objects.get(pk=pk)
-    friend_request = FriendshipRequest.objects.get(from_user=other_user, to_user=request.user)
+    friend_request = FriendshipRequest.objects.get(
+        from_user=other_user, to_user=request.user)
     friend_request.accept()
     return friends_detail(request)
 
 
 def reject_request(request, pk):
     other_user = Spectator.objects.get(pk=pk)
-    friend_request = FriendshipRequest.objects.get(from_user=other_user, to_user=request.user)
+    friend_request = FriendshipRequest.objects.get(
+        from_user=other_user, to_user=request.user)
     friend_request.reject()
     return friends_detail(request)
 
@@ -134,7 +135,8 @@ def login_request(request):
             messages.error(
                 request, "Неправильное имя пользователя или пароль.")
     form = AuthenticationForm()
-    return render(request=request, template_name="login.html", context={"login_form": form})
+    return render(request=request, template_name="login.html",
+                  context={"login_form": form})
 
 
 def logout_request(request):
